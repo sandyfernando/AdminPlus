@@ -7,13 +7,13 @@ uses
     TUsuario = class(TEntidade)
     private
       FIdFuncionario : Integer;
-      FId            : Integer;
+      FIdUsuario     : Integer;
       FSenha         : String;
       FLogin         : String;
       FCalcLogado    : Boolean;
 
     public
-      property Id             : Integer read FId              write Fid;
+      property IdUsuario      : Integer read FIdUsuario       write FIdUsuario;
       property Login          : String  read FLogin           write FlOGIN;
       property Senha          : String  read FSenha           write FSenha;
       property IdFuncioanerio : Integer read FIdFuncionario   write FIdFuncionario;

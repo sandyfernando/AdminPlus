@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls, Vcl.StdCtrls, System.ImageList, Vcl.ImgList, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
-  FireDAC.DApt.Intf, FireDAC.Comp.DataSet, FireDAC.Comp.Client, UController;
+  FireDAC.DApt.Intf, FireDAC.Comp.DataSet, FireDAC.Comp.Client, UController, UEntidade;
 
 type
   TFLista = class(TForm)
@@ -48,12 +48,13 @@ type
     procedure btImprimirClick(Sender: TObject);
   private
     { Private declarations }
-    procedure CarrecarLista;                                  virtual; abstract;
-    procedure Incluir;                                        virtual; abstract;
-    procedure Alterar;                                        virtual; abstract;
-    procedure Excluir;                                        virtual; abstract;
+    protected
+    procedure CarrecarLista;                                   virtual; abstract;
+    procedure Incluir;                                         virtual; abstract;
+    procedure Alterar;                   virtual; abstract;
+    procedure Excluir;                   virtual; abstract;
     procedure Imprimir;                                        virtual; abstract;
-    procedure CarregarDTO;                                    virtual; abstract;
+    procedure CarregarDTO;                                     virtual; abstract;
   public
     { Public declarations }
   end;

@@ -29,7 +29,7 @@ uses
         property IdCidade    : TCidade read FIdCidade write SetIdCidade;
 
         constructor Create ;
-        destructor  Destroy ;
+        destructor  Destroy; override;
 
     End;
 
@@ -41,12 +41,14 @@ uses
 
 constructor TEndereco.Create;
 begin
+  inherited;
   FIdCidade := TCidade.Create;
 end;
 
 destructor TEndereco.Destroy;
 begin
   FreeAndNil(FIdCidade);
+  inherited
 end;
 
 procedure TEndereco.SetBairro(const Value: String);

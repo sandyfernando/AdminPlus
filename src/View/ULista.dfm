@@ -10,10 +10,8 @@ object FLista: TFLista
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  FormStyle = fsMDIChild
-  OldCreateOrder = False
+  Position = poMainFormCenter
   Visible = True
-  PixelsPerInch = 96
   TextHeight = 13
   object pnlFiltro: TPanel
     AlignWithMargins = True
@@ -28,6 +26,7 @@ object FLista: TFLista
     Caption = 'pnlFiltro'
     ShowCaption = False
     TabOrder = 0
+    ExplicitWidth = 797
     object gpBtFiltro: TGridPanel
       Left = 1
       Top = 80
@@ -60,6 +59,7 @@ object FLista: TFLista
         end>
       ShowCaption = False
       TabOrder = 0
+      ExplicitWidth = 791
       object pnlBtVazio: TPanel
         Left = 1
         Top = 1
@@ -114,6 +114,8 @@ object FLista: TFLista
     Enabled = False
     ShowCaption = False
     TabOrder = 1
+    ExplicitWidth = 797
+    ExplicitHeight = 360
     object gpOpcoes: TGridPanel
       Left = 1
       Top = 1
@@ -174,6 +176,7 @@ object FLista: TFLista
         end>
       ShowCaption = False
       TabOrder = 0
+      ExplicitWidth = 791
       object pnlIncluir: TPanel
         Left = 1
         Top = 1
@@ -355,6 +358,8 @@ object FLista: TFLista
         end>
       ShowCaption = False
       TabOrder = 2
+      ExplicitTop = 328
+      ExplicitWidth = 791
       object pnlInativo: TPanel
         Left = 1
         Top = 1

@@ -30,7 +30,7 @@ begin
       exit;
     end;
 
-    Result := UsuarioDAO.BuscarUsuario(Usuario);
+    Result := UsuarioDAO.Login(Usuario);
 
   finally
     FreeAndNil(UsuarioDAO);

@@ -35,14 +35,17 @@ type
     procedure btCancelarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
+    FId: Integer;
     { Private declarations }
+  protected
     procedure CarregarModelo;                                  virtual; abstract;
-    procedure Cancelar;                                        virtual; abstract;
+    procedure Cancelar;
     procedure Gravar;                                          virtual; abstract;
     procedure CarregarDTO;                                     virtual; abstract;
 
   public
     { Public declarations }
+    property Id : Integer read FId write FId;
   end;
 
 var
@@ -62,9 +65,15 @@ begin
   Gravar;
 end;
 
+procedure TFCad.Cancelar;
+begin
+  Close;
+end;
+
 procedure TFCad.FormShow(Sender: TObject);
 begin
   CarregarModelo;
+  CarregarDTO;
 end;
 
 end.

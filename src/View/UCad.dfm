@@ -10,11 +10,9 @@ object FCad: TFCad
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  FormStyle = fsMDIChild
-  OldCreateOrder = False
-  Visible = True
+  FormStyle = fsMDIForm
+  Position = poMainFormCenter
   OnShow = FormShow
-  PixelsPerInch = 96
   TextHeight = 13
   object PGPrincipal: TPageControl
     Left = 0
@@ -24,6 +22,8 @@ object FCad: TFCad
     ActivePage = TComum
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 555
+    ExplicitHeight = 287
     object TComum: TTabSheet
       Caption = 'Comum'
       object GPDADOS1: TGridPanel
@@ -41,7 +41,7 @@ object FCad: TFCad
             Value = 33.333333333333340000
           end
           item
-            Value = 33.333333333333340000
+            Value = 33.333333333333310000
           end>
         ControlCollection = <
           item
@@ -65,6 +65,7 @@ object FCad: TFCad
           end>
         ShowCaption = False
         TabOrder = 0
+        ExplicitWidth = 547
         object pnlcodigo: TPanel
           Left = 1
           Top = 1
@@ -146,6 +147,8 @@ object FCad: TFCad
     Height = 52
     Align = alBottom
     TabOrder = 1
+    ExplicitTop = 287
+    ExplicitWidth = 555
     object GridPanel1: TGridPanel
       Left = 1
       Top = 1
@@ -187,6 +190,7 @@ object FCad: TFCad
         end>
       ShowCaption = False
       TabOrder = 0
+      ExplicitWidth = 553
       object pnlRodapeVasio: TPanel
         Left = 1
         Top = 1

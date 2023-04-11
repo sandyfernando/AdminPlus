@@ -35,12 +35,18 @@ type
     procedure BtnSairClick(Sender: TObject);
     procedure BtCadComumClick(Sender: TObject);
     procedure BtnFinanceiroClick(Sender: TObject);
+    procedure GdPnlMenuPrincipalClick(Sender: TObject);
+    procedure PnlCLientClick(Sender: TObject);
+    procedure BtnUsuarioClick(Sender: TObject);
   private
     { Private declarations }
     procedure CriarLogin;
 
     procedure MenuCadatro;
     procedure MenuFinanceiro;
+    procedure FecharTodosMenu;
+
+    procedure AbrirTelaListaUsuario;
   public
     { Public declarations }
   end;
@@ -50,10 +56,26 @@ var
 
 implementation
 uses
-  ULogin;
+  ULogin, UFListaUsuario;
 {$R *.dfm}
 
 { TFPrincipal }
+
+procedure TFPrincipal.AbrirTelaListaUsuario;
+var
+  UsuarioLista : TFListaUsuario;
+begin
+
+  UsuarioLista := TFListaUsuario.Create(Application);
+  try
+    FecharTodosMenu;
+    UsuarioLista.Show;
+
+  finally
+//    UsuarioLista.Free
+  end;
+
+end;
 
 procedure TFPrincipal.BtCadComumClick(Sender: TObject);
 begin
@@ -70,6 +92,11 @@ begin
   Application.Terminate;
 end;
 
+procedure TFPrincipal.BtnUsuarioClick(Sender: TObject);
+begin
+  AbrirTelaListaUsuario;
+end;
+
 procedure TFPrincipal.CriarLogin;
 var
   Login : TFLogin;
@@ -78,9 +105,20 @@ begin
   Login.ShowModal;
 end;
 
+procedure TFPrincipal.FecharTodosMenu;
+begin
+  pnlMenuLateralComum.Visible := False;
+  PnlFinanceiro.Visible       := False;
+end;
+
 procedure TFPrincipal.FormCreate(Sender: TObject);
 begin
   CriarLogin;
+end;
+
+procedure TFPrincipal.GdPnlMenuPrincipalClick(Sender: TObject);
+begin
+  FecharTodosMenu;
 end;
 
 procedure TFPrincipal.MenuCadatro;
@@ -103,6 +141,11 @@ begin
   end;
   pnlMenuLateralComum.Visible := False;
   PnlFinanceiro.Visible       := True;
+end;
+
+procedure TFPrincipal.PnlCLientClick(Sender: TObject);
+begin
+  FecharTodosMenu;
 end;
 
 end.

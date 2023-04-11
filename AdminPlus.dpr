@@ -17,7 +17,9 @@ uses
   UEstado in 'src\Model\Comum\UEstado.pas',
   UUsuario in 'src\Model\Login\UUsuario.pas',
   UPessoa in 'src\Model\Comum\UPessoa.pas',
-  UUsuarioController in 'src\Controller\UUsuarioController.pas';
+  UUsuarioController in 'src\Controller\UUsuarioController.pas',
+  UFListaUsuario in 'src\View\CadastroComum\UFListaUsuario.pas' {FListaUsuario},
+  UFCadUsuario in 'src\View\CadastroComum\UFCadUsuario.pas' {FCadUsuario};
 
 {$R *.res}
 

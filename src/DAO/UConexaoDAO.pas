@@ -2,7 +2,7 @@ unit UConexaoDAO;
 
 interface
 uses
-  FireDAC.Comp.Client, System.Classes, FireDAC.Stan.Def, FireDAC.Phys.MySQL, FireDAC.DApt,
+  FireDAC.Comp.Client, System.Classes, FireDAC.Stan.Def, FireDAC.Phys.MySQL, FireDAC.Phys.pg, FireDAC.DApt,
   FireDAC.UI.Intf, FireDAC.VCLUI.Wait, FireDAC.Stan.Intf, FireDAC.Comp.UI, FireDAC.Stan.Async;
   Type
     TConexaoDAO = Class
@@ -42,18 +42,20 @@ class function TConexaoDAO.geTFDConnection: TFDConnection;
 var
   CaminhoRede           : String;
   Connection            : TFDConnection;
-  FDPhysMSSQLDriverLink : TFDPhysMySQLDriverLink;
+  FDPhyspgLDriverLink : TFDPhyspgDriverLink;
 begin
   Connection := nil;
 
   try
     try
       Connection := TFDConnection.Create(nil);
-      Connection.Params.Values['DriverID']  :='Mysql';
-      Connection.Params.Values['Server']    :='127.0.0.1';
-      Connection.Params.Values['Database']  :='dados';
-      Connection.Params.Values['User_name'] :='root';
-      Connection.Params.Values['Password']  := '';
+      Connection.DriverName  := 'PG';
+      Connection.Params.Values['DriverID']  :='PG';
+      Connection.Params.Values['hostname']  :='172.19.51.212';
+      Connection.Params.Values['Database']  :='Dados';
+      Connection.Params.Values['User_name'] :='postgres';
+      Connection.Params.Values['Password']  := 'root';
+
 
       Connection.Connected := True;
     except

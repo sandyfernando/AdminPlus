@@ -14,9 +14,11 @@ uses
 
 
      public
-       function BuscarUsuario      (var aUsuario   : TUsuario)                             : Boolean;
-       function BuscarUsuarioLista (var aMemTab    : TFDMemTable; const aUsario : TUsuario) : Boolean;
-       function Gravar             (const aUsuario : TUsuario) : Boolean;
+       function BuscarUsuario      (var aUsuario   : TUsuario)                          : Boolean;
+       function BuscarUsuarioLista (aMemTab    : TFDMemTable; const aUsario : TUsuario) : Boolean;
+       function Gravar             (const aUsuario : TUsuario)                          : Boolean;
+       function Excluir            (const aUsuario : TUsuario)                          : Boolean;
+       function Login              (var aUsuario   : TUsuario)                          : Boolean;
    End;
 
 implementation
@@ -37,7 +39,7 @@ begin
          '    LOGIN         = :LOGIN,         '+
          '    SENHA         = :SENHA,         '+
          '    IDFUNCIONARIO = :IDFUNCIONARIO  '+
-         ' WHERE ID= : ID)                    ');
+         ' WHERE IDUSUARIO= : IDUSUARIO)                    ');
 
       CarregarParametros(lQuery, aUsuario);
 
@@ -54,8 +56,57 @@ begin
 
 end;
 
-function TUsuarioDAO.BuscarUsuarioLista(var aMemTab: TFDMemTable; const aUsario: TUsuario): Boolean;
+function TUsuarioDAO.BuscarUsuarioLista(aMemTab: TFDMemTable; const aUsario: TUsuario): Boolean;
+var
+  lQuery : TFDQuery;
 begin
+  lQuery  := PrepararQuery();
+  Result := False;
+  try
+    lQuery.SQL.Add(' SELECT IDUSUARIO,   '+
+                  '        LOGIN,        '+
+                  '        SENHA,        '+
+                  '        IDFUNCIONARIO '+
+                  ' FROM usuario         ');
+
+    lQuery.Open;
+
+    if not lQuery.IsEmpty then
+    begin
+      aMemTab.Data := lQuery.Data;
+      Result       := True;
+    end;
+  finally
+    System.SysUtils.FreeAndNil(lQuery);
+  end;
+
+end;
+
+function TUsuarioDAO.Excluir(const aUsuario: TUsuario): Boolean;
+var
+  lQuery : TFDQuery;
+begin
+  lQuery  := PrepararQuery(Connection);
+  try
+    try
+      lQuery.SQL.Add(
+         ' DELETE FROM USUARIO WHERE IDUSUARIO= : IDUSUARIO ');
+
+      CarregarParametros(lQuery, aUsuario);
+
+      lQuery.ExecSQL;
+
+      Result := True;
+    except
+      on E: Exception do
+      begin
+        Result := False;
+        raise
+      end;
+    end;
+  finally
+    System.SysUtils.FreeAndNil(lQuery);
+  end;
 
 end;
 
@@ -66,24 +117,20 @@ begin
   lQuery  := PrepararQuery();
   Result := False;
   try
-    lQuery.SQL.Add(' SELECT ID,           '+
+    lQuery.SQL.Add(' SELECT IDUSUARIO,   '+
                   '        LOGIN,        '+
                   '        SENHA,        '+
                   '        IDFUNCIONARIO '+
                   ' FROM usuario         '+
-                  ' WHERE LOGIN = :LOGIN '+
-                  '   AND SENHA = :SENHA ');
+                  ' WHERE IDUSUARIO = :IDUSUARIO ');
 
-    lQuery.ParamByName('LOGIN').AsString := aUsuario.Login;
-    lQuery.ParamByName('SENHA').AsString := aUsuario.Senha;
+    CarregarParametros(lQuery, aUsuario);
 
     lQuery.Open;
 
     if not lQuery.IsEmpty then
     begin
-      aUsuario.Id             := lQuery.FieldByName('ID').AsInteger;
-      aUsuario.IdFuncioanerio := lQuery.FieldByName('IDFUNCIONARIO').AsInteger;
-      Result                 := True;
+      aUsuario.Carregar(lQuery);
     end;
   finally
     System.SysUtils.FreeAndNil(lQuery);
@@ -93,7 +140,7 @@ end;
 function TUsuarioDAO.Gravar(const aUsuario: TUsuario): Boolean;
 begin
   try
-    if aUsuario.Id = 0 then
+    if aUsuario.IdUsuario = 0 then
     begin
       Incluir(aUsuario);
     end
@@ -142,5 +189,35 @@ begin
   end;
 end;
 
+
+function TUsuarioDAO.Login(var aUsuario: TUsuario): Boolean;
+var
+  lQuery : TFDQuery;
+begin
+  lQuery  := PrepararQuery();
+  Result := False;
+  try
+    lQuery.SQL.Add(' SELECT IDUSUARIO,   '+
+                  '        LOGIN,        '+
+                  '        SENHA,        '+
+                  '        IDFUNCIONARIO '+
+                  ' FROM usuario         '+
+                  ' WHERE LOGIN = :LOGIN '+
+                  '   AND SENHA = :SENHA  ');
+
+    CarregarParametros(lQuery, aUsuario);
+
+    lQuery.Open;
+
+    if not lQuery.IsEmpty then
+    begin
+      aUsuario.Carregar(lQuery);
+      Result := True;
+    end;
+  finally
+    System.SysUtils.FreeAndNil(lQuery);
+  end;
+
+end;
 
 end.

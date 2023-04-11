@@ -5,24 +5,26 @@ uses
   System.Classes, UEstado, UEntidade;
   type
     TCidade = class(TEntidade)
-      private
-    FDescricao: String;
-    FIdCidade: Integer;
-    FIdestado: TEstado;
-    FCodigoIBGE: String;
-    procedure SetCodigoIBGE(const Value: String);
-    procedure SetDescricao(const Value: String);
-    procedure SetIdCidade(const Value: Integer);
-    procedure SetIdestado(const Value: TEstado);
+    private
+      FDescricao: String;
+      FIdCidade: Integer;
+      FIdestado: TEstado;
+      FCodigoIBGE: String;
+      procedure SetCodigoIBGE(const Value: String);
+      procedure SetDescricao(const Value: String);
+      procedure SetIdCidade(const Value: Integer);
+      procedure SetIdestado(const Value: TEstado);
 
 
-      public
-         constructor Create;
-         Destructor  Destroy;
-         property IdCidade   : Integer read FIdCidade write SetIdCidade;
-         property Descricao  : String read FDescricao write SetDescricao;
-         property CodigoIBGE : String read FCodigoIBGE write SetCodigoIBGE;
-         property Idestado   : TEstado read FIdestado write SetIdestado;
+    public
+      constructor Create;
+
+      Destructor  Destroy;   override;
+
+      property IdCidade   : Integer read FIdCidade write SetIdCidade;
+      property Descricao  : String read FDescricao write SetDescricao;
+      property CodigoIBGE : String read FCodigoIBGE write SetCodigoIBGE;
+      property Idestado   : TEstado read FIdestado write SetIdestado;
     end;
 
 implementation
@@ -33,12 +35,14 @@ uses
 
 constructor TCidade.Create;
 begin
+  inherited;
   FIdestado := TEstado.Create;
 end;
 
 destructor TCidade.Destroy;
 begin
   FreeAndNil(FIdestado);
+  inherited;
 end;
 
 procedure TCidade.SetCodigoIBGE(const Value: String);

@@ -4,7 +4,7 @@ interface
 uses
   UController, UUsuario, FireDAC.Comp.Client, UUsuarioDAO, UConexaoDAO;
 type
-  TUsauario = class(TController)
+  TUsauarioController = class(TController)
     private
       FUsuario    : TUsuario;
       FUsuarioDAO : TUsuarioDAO;
@@ -28,36 +28,36 @@ uses
 
 { TUsauario }
 
-function TUsauario.BuscarEntidade(aUsuario: TUsuario): Boolean;
+function TUsauarioController.BuscarEntidade(aUsuario: TUsuario): Boolean;
 begin
-
+  FUsuarioDAO.BuscarUsuario(aUsuario);
 end;
 
-function TUsauario.BuscarListaEntidade(aUsuario: TUsuario): TFDMemTable;
+function TUsauarioController.BuscarListaEntidade(aUsuario: TUsuario): TFDMemTable;
 begin
-
+  FUsuarioDAO.BuscarUsuarioLista(MemTab, Usuario);
 end;
 
-constructor TUsauario.Create;
+constructor TUsauarioController.Create;
 begin
   inherited;
   FUsuario    := TUsuario.Create;;
   FUsuarioDAO := TUsuarioDAO.Create;
 end;
 
-destructor TUsauario.Destroy;
+destructor TUsauarioController.Destroy;
 begin
   FreeAndNil(FUsuario);
   FreeAndNil(FUsuarioDAO);
   inherited;
 end;
 
-function TUsauario.Excluir(aUsuario: TUsuario): Boolean;
+function TUsauarioController.Excluir(aUsuario: TUsuario): Boolean;
 begin
-
+   FUsuarioDAO.Excluir(aUsuario);
 end;
 
-procedure TUsauario.Gravar(aUsuario: TUsuario);
+procedure TUsauarioController.Gravar(aUsuario: TUsuario);
 begin
   try
     aUsuario.Connection.Assign(TConexaoDAO.getfdConnection);

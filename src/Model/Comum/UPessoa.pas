@@ -40,7 +40,7 @@ uses UEndereco, System.classes, UEntidade;
       property IdContato            : Integer   read FIdContato           write SetIdContato;
 
       constructor Crete  ;
-      destructor  Destroy;
+      destructor  Destroy; override;
     end;
 
 implementation
@@ -59,6 +59,7 @@ end;
 destructor TPessoa.Destroy;
 begin
    FreeAndNil(FIdEnderecoPrincipal);
+   inherited;
 end;
 
 procedure TPessoa.SetCnae(const Value: String);

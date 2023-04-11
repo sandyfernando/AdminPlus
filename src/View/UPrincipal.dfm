@@ -10,11 +10,9 @@ object FPrincipal: TFPrincipal
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = False
   Position = poMainFormCenter
   WindowState = wsMaximized
   OnCreate = FormCreate
-  PixelsPerInch = 96
   TextHeight = 13
   object PnlCLient: TPanel
     Left = 0
@@ -24,6 +22,9 @@ object FPrincipal: TFPrincipal
     Align = alClient
     BevelKind = bkSoft
     TabOrder = 0
+    OnClick = PnlCLientClick
+    ExplicitWidth = 994
+    ExplicitHeight = 664
     object pnlMenuLateralComum: TPanel
       Left = 1
       Top = 97
@@ -33,6 +34,7 @@ object FPrincipal: TFPrincipal
       BevelOuter = bvNone
       TabOrder = 0
       Visible = False
+      ExplicitHeight = 562
       object PnlCadPessoa: TPanel
         Left = 0
         Top = 57
@@ -44,7 +46,6 @@ object FPrincipal: TFPrincipal
         Caption = 'PnlCadPessoa'
         ShowCaption = False
         TabOrder = 0
-        ExplicitWidth = 204
         object BtCadastroPessoa: TButton
           AlignWithMargins = True
           Left = 3
@@ -57,7 +58,7 @@ object FPrincipal: TFPrincipal
           Images = Img32
           Style = bsCommandLink
           TabOrder = 0
-          ExplicitWidth = 194
+          StyleName = 'Windows'
         end
       end
       object PnlUsuario: TPanel
@@ -71,7 +72,6 @@ object FPrincipal: TFPrincipal
         Caption = 'PnlCadPessoa'
         ShowCaption = False
         TabOrder = 1
-        ExplicitWidth = 204
         object BtnUsuario: TButton
           AlignWithMargins = True
           Left = 3
@@ -84,7 +84,8 @@ object FPrincipal: TFPrincipal
           Images = Img32
           Style = bsCommandLink
           TabOrder = 0
-          ExplicitWidth = 194
+          StyleName = 'Windows'
+          OnClick = BtnUsuarioClick
         end
       end
     end
@@ -99,6 +100,7 @@ object FPrincipal: TFPrincipal
       Caption = 'Panel1'
       ShowCaption = False
       TabOrder = 1
+      ExplicitWidth = 988
       object GdPnlMenuPrincipal: TGridPanel
         AlignWithMargins = True
         Left = 3
@@ -160,6 +162,8 @@ object FPrincipal: TFPrincipal
           end>
         ShowCaption = False
         TabOrder = 0
+        OnClick = GdPnlMenuPrincipalClick
+        ExplicitWidth = 978
         DesignSize = (
           982
           86)
@@ -179,10 +183,8 @@ object FPrincipal: TFPrincipal
           Images = Img64
           Style = bsCommandLink
           TabOrder = 0
+          StyleName = 'Windows'
           OnClick = BtCadComumClick
-          ExplicitLeft = 2
-          ExplicitTop = 1
-          ExplicitHeight = 84
         end
         object BtnFinanceiro: TButton
           AlignWithMargins = True
@@ -195,10 +197,8 @@ object FPrincipal: TFPrincipal
           Images = Img64
           Style = bsCommandLink
           TabOrder = 1
+          StyleName = 'Windows'
           OnClick = BtnFinanceiroClick
-          ExplicitLeft = 84
-          ExplicitTop = 4
-          ExplicitHeight = 78
         end
         object Button2: TButton
           Left = 160
@@ -209,7 +209,7 @@ object FPrincipal: TFPrincipal
           Caption = 'Button2'
           TabOrder = 2
           Visible = False
-          ExplicitLeft = 161
+          StyleName = 'Windows'
         end
         object Button3: TButton
           Left = 235
@@ -220,7 +220,7 @@ object FPrincipal: TFPrincipal
           Caption = 'Button2'
           TabOrder = 3
           Visible = False
-          ExplicitLeft = 236
+          StyleName = 'Windows'
         end
         object BtnSair: TButton
           Left = 913
@@ -233,10 +233,9 @@ object FPrincipal: TFPrincipal
           Images = Img64
           Style = bsCommandLink
           TabOrder = 4
+          StyleName = 'Windows'
           OnClick = BtnSairClick
-          ExplicitLeft = 912
-          ExplicitTop = 1
-          ExplicitHeight = 84
+          ExplicitLeft = 909
         end
       end
     end
@@ -251,6 +250,7 @@ object FPrincipal: TFPrincipal
       ShowCaption = False
       TabOrder = 2
       Visible = False
+      ExplicitHeight = 562
       object Panel2: TPanel
         Left = 0
         Top = 114
@@ -262,7 +262,6 @@ object FPrincipal: TFPrincipal
         Caption = 'PnlCadPessoa'
         ShowCaption = False
         TabOrder = 0
-        ExplicitWidth = 196
         object BtnRelatorioFinanceiro: TButton
           AlignWithMargins = True
           Left = 3
@@ -275,7 +274,7 @@ object FPrincipal: TFPrincipal
           Images = Img32
           Style = bsCommandLink
           TabOrder = 0
-          ExplicitWidth = 186
+          StyleName = 'Windows'
         end
       end
       object Panel3: TPanel
@@ -289,7 +288,6 @@ object FPrincipal: TFPrincipal
         Caption = 'PnlCadPessoa'
         ShowCaption = False
         TabOrder = 1
-        ExplicitWidth = 196
         object btnContasReceber: TButton
           AlignWithMargins = True
           Left = 3
@@ -302,7 +300,7 @@ object FPrincipal: TFPrincipal
           Images = Img32
           Style = bsCommandLink
           TabOrder = 0
-          ExplicitWidth = 186
+          StyleName = 'Windows'
         end
       end
       object Panel4: TPanel
@@ -316,7 +314,6 @@ object FPrincipal: TFPrincipal
         Caption = 'PnlCadPessoa'
         ShowCaption = False
         TabOrder = 2
-        ExplicitWidth = 196
         object BtnContaPagar: TButton
           AlignWithMargins = True
           Left = 3
@@ -329,7 +326,7 @@ object FPrincipal: TFPrincipal
           Images = Img32
           Style = bsCommandLink
           TabOrder = 0
-          ExplicitWidth = 186
+          StyleName = 'Windows'
         end
       end
     end
