@@ -10,7 +10,6 @@ uses
   UModel.Pais in 'src\Model\UModel.Pais.pas',
   UControler.Pais in 'src\Controller\UControler.Pais.pas',
   UControler.Ping in 'src\Controller\UControler.Ping.pas',
-  UDAO.Pais in 'src\DAO\UDAO.Pais.pas',
   UDAO.Conexao in 'src\DAO\UDAO.Conexao.pas',
   UModel in 'src\Model\UModel.pas',
   UDAO in 'src\DAO\UDAO.pas',
@@ -18,13 +17,14 @@ uses
   UService.Pais in 'src\Service\UService.Pais.pas';
 
 begin
+  ReportMemoryLeaksOnShutdown := True;
   UControler.Pais.Registry;
   UControler.Ping.Registry;
 
 //{$IFDEF MSWINDOWS}
 //  if DebugHook = 1 then // verifica se esta sendo feito a execução em modo Debug
 //  begin
-    ReportMemoryLeaksOnShutdown := True;
+
 //    Writeln('Execuação em modo debug')
 //  end
 //  else

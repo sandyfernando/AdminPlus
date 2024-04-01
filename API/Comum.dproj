@@ -84,7 +84,7 @@
         <DCC_K>false</DCC_K>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <SanitizedProjectName>Comum</SanitizedProjectName>
-        <DCC_UnitSearchPath>modules\.dcp;modules\.dcu;modules;modules\horse\src;modules\jhonson\src;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>modules\.dcp;modules\.dcu;modules;modules\cqlbr\Source\Core;modules\cqlbr\Source\Drivers;modules\cqlbr\Source;modules\dbcbr\Source\Core;modules\dbcbr\Source\Drivers;modules\dbcbr\Source;modules\dbebr\Source\Core;modules\dbebr\Source\Drivers;modules\dbebr\Source;modules\horse\src;modules\jhonson\src;modules\jsonbr\Source\Core;modules\jsonbr\Source\Middleware-Horse;modules\jsonbr\Source;modules\ormbr\Source\Core;modules\ormbr\Source\Criteria;modules\ormbr\Source\Dataset;modules\ormbr\Source\External\SQLite3;modules\ormbr\Source\Livebindings;modules\ormbr\Source\Metadata;modules\ormbr\Source\Middleware;modules\ormbr\Source\Middleware-Horse;modules\ormbr\Source\Monitor;modules\ormbr\Source\Objectset;modules\ormbr\Source\RESTful\Client;modules\ormbr\Source\RESTful\Common;modules\ormbr\Source\RESTful\Server;modules\ormbr\Source;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <DCC_UsePackage>fmx;DbxCommonDriver;bindengine;IndyIPCommon;emsclient;FireDACCommonDriver;IndyProtocols;IndyIPClient;dbxcds;FmxTeeUI;bindcompfmx;FireDACSqliteDriver;DbxClientDriver;soapmidas;fmxFireDAC;dbexpress;inet;DataSnapCommon;fmxase;dbrtl;FireDACDBXDriver;CustomIPTransport;DBXInterBaseDriver;IndySystem;bindcomp;FireDACCommon;IndyCore;RESTBackendComponents;bindcompdbx;rtl;RESTComponents;DBXSqliteDriver;IndyIPServer;dsnapxml;DataSnapClient;DataSnapProviderClient;DataSnapFireDAC;emsclientfiredac;FireDAC;FireDACDSDriver;xmlrtl;tethering;dsnap;CloudService;DataSnapNativeClient;FMXTee;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
@@ -183,7 +183,6 @@
         <DCCReference Include="src\Model\UModel.Pais.pas"/>
         <DCCReference Include="src\Controller\UControler.Pais.pas"/>
         <DCCReference Include="src\Controller\UControler.Ping.pas"/>
-        <DCCReference Include="src\DAO\UDAO.Pais.pas"/>
         <DCCReference Include="src\DAO\UDAO.Conexao.pas"/>
         <DCCReference Include="src\Model\UModel.pas"/>
         <DCCReference Include="src\DAO\UDAO.pas"/>

@@ -2,16 +2,17 @@ unit UService.Pais;
 
 interface
 uses
-  UDAO.Pais, Horse, UModel.Pais;
+  UDAO, UDAO.Conexao,  Horse, UModel.Pais, ormbr.json;
 type
   TServicePais = class
   private
-    FDAOPais: TDAOPais;
+    FDAO: TDAO<TPaisModel>;
     FPaisModel: TPaisModel;
   public
     constructor Create;
 
-    function Load(Req: THorseRequest): String;
+    function Load(Req: THorseRequest; Res: THorseResponse): String;
+    procedure Insert(Req: THorseRequest; Res: THorseResponse);
 
     destructor Destroy; override;
   end;
@@ -19,32 +20,57 @@ type
 implementation
 
 uses
-  System.SysUtils;
+  System.SysUtils, System.Generics.Collections;
 
 { TServicePais }
 
 constructor TServicePais.Create;
 begin
   inherited;
-  FDAOPais := TDAOPais.Create;
+  FDAO := TDAO<TPaisModel>.create(TConecaoDAO.ObterInstancia.Connectar);
   FPaisModel := TPaisModel.Create;
 end;
 
 destructor TServicePais.Destroy;
 begin
-  if Assigned(FDAOPais) then
-    FreeAndNil(FDAOPais);
+  if Assigned(FDAO) then
+    FreeAndNil(FDAO);
   if Assigned(FPaisModel) then
     FreeAndNil(FPaisModel);
 
   inherited;
 end;
 
-function TServicePais.Load(Req: THorseRequest): String;
+procedure TServicePais.Insert(Req: THorseRequest; Res: THorseResponse);
+var
+  lPais : TPaisModel;
 begin
-  FDAOPais.Select(FPaisModel);
-//  Result := FPaisModel;
-  Result := 'get pais'
+  lPais := TORMBrJson.JsonToObject<TPaisModel>(Req.Body);
+  try
+    Fdao.insert(lPais);
+    Res.Send(TORMBrJson.ObjectToJsonString(lPais))
+       .Status(201)
+       .ContentType('application/json');
+
+  finally
+    lPais.Free;
+  end;
+
+end;
+
+function TServicePais.Load(Req: THorseRequest; Res: THorseResponse): String;
+var
+  lPaisList: TObjectList<TPaisModel>;
+begin
+
+  lPaisList := FDAO.listAll;
+  try
+    Res.Send(TORMBrJson.ObjectListToJsonString<TPaisModel>(lPaisList))
+       .ContentType('application/json');
+  finally
+    lPaisList.Free;
+  end;
+
 end;
 
 end.

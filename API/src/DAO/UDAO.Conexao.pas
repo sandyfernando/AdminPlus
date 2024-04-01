@@ -2,7 +2,7 @@ unit UDAO.Conexao;
 
 interface
 uses
-  FireDAC.Comp.Client, FireDAC.Phys.PG, System.SysUtils;
+  FireDAC.Comp.Client, FireDAC.Phys.PG, System.SysUtils, FireDAC.Stan.Def;
 type
   TConecaoDAO = class
     private

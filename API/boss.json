@@ -7,6 +7,9 @@
 	"projects": [],
 	"dependencies": {
 		"github.com/hashload/horse": "^3.1.6",
-		"github.com/hashload/jhonson": "^1.1.8"
+		"github.com/hashload/jhonson": "^1.1.8",
+		"https://github.com/hashload/dbcbr": "^1.1.7",
+		"https://github.com/hashload/jsonbr": "^1.1.6",
+		"https://github.com/hashload/ormbr": "^1.1.8"
 	}
 }

@@ -19,6 +19,9 @@ type
   end;
 implementation
 
+uses
+  dbcbr.mapping.register;
+
 { TPaisDAO }
 
 constructor TDAOPais.Create;
