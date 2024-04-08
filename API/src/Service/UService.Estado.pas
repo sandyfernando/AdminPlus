@@ -13,6 +13,9 @@ type
 
       procedure Load(Req: THorseRequest; Res: THorseResponse);
       procedure Insert(Req: THorseRequest; Res: THorseResponse);
+      procedure Find(Req: THorseRequest; Res: THorseResponse);
+      procedure Update(Req: THorseRequest; Res: THorseResponse);
+      procedure Delete(Req: THorseRequest; Res: THorseResponse);
 
   end;
 
@@ -27,11 +30,43 @@ begin
   FDAO := TDAO<TEstado>.create(TConecaoDAO.ObterInstancia.Connectar);
 end;
 
+procedure TServiceEstado.Delete(Req: THorseRequest; Res: THorseResponse);
+var
+  lId: String;
+  lEstado: TEstado;
+begin
+  lId := Req.Params['id'];
+  lEstado := FDAO.findWhere('id = ' + lId);
+  try
+    FDAO.delete(lEstado);
+    Res.Status(THTTPStatus.NoContent);
+  finally
+    lEstado.Free;
+  end;
+end;
+
 destructor TServiceEstado.Destroy;
 begin
   if Assigned(FDAO) then
     FDAO.Free;
   inherited;
+end;
+
+procedure TServiceEstado.Find(Req: THorseRequest; Res: THorseResponse);
+var
+  lId: String;
+  lEstado: TEstado;
+begin
+  lId := Req.Params['id'];
+
+  lEstado := FDAO.findWhere('id = ' + lId);
+  try
+    Res.Send(TORMBrJson.ObjectToJsonString(lEstado))
+      .ContentType('application/json');
+  finally
+    lEstado.Free;
+  end;
+
 end;
 
 procedure TServiceEstado.Load(Req: THorseRequest; Res: THorseResponse);
@@ -44,6 +79,27 @@ begin
       .ContentType('application/json');
   finally
     lListEstado.Free;
+  end;
+end;
+
+procedure TServiceEstado.Update(Req: THorseRequest; Res: THorseResponse);
+var
+  lId: String;
+  lEstado: TEstado;
+begin
+  lId := Req.Params['id'];
+  lEstado := FDAO.findWhere('id = ' + lId);
+  try
+    FDAO.modify(lEstado);
+
+    TORMBrJson.JsonToObject(req.Body, lEstado);
+
+    FDAO.update(lEstado);
+
+    Res.Send(TORMBrJson.ObjectToJsonString(lEstado))
+      .ContentType('application/json');
+  finally
+    lEstado.Free;
   end;
 end;
 

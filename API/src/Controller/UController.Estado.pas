@@ -35,8 +35,22 @@ begin
 end;
 
 procedure Find(Req: THorseRequest; Res: THorseResponse; NEXT: TProc);
+var
+  lServiceEstado: TServiceEstado;
 begin
-  Res.Send('get find estado');
+  lServiceEstado := TServiceEstado.Create;
+  try
+    try
+      lServiceEstado.Find(Req, Res);
+    except
+      on E: Exception do
+      begin
+        Res.Send(e.Message).Status(THTTPStatus.InternalServerError);
+      end;
+    end;
+  finally
+    lServiceEstado.Free;
+  end;
 end;
 
 procedure Post(Req: THorseRequest; Res: THorseResponse; NEXT: TProc);
@@ -59,11 +73,50 @@ begin
   end;
 end;
 
+procedure Put(Req: THorseRequest; Res: THorseResponse; NEXT: TProc);
+var
+  lServiceEstado: TServiceEstado;
+begin
+  lServiceEstado := TServiceEstado.Create;
+  try
+    try
+      lServiceEstado.Update(Req, Res);
+    except
+      on E: Exception do
+      begin
+        Res.Send(e.Message).Status(THTTPStatus.InternalServerError);
+      end;
+    end;
+  finally
+    lServiceEstado.Free;
+  end;
+end;
+
+procedure Delete(Req: THorseRequest; Res: THorseResponse; NEXT: TProc);
+var
+  lServiceEstado: TServiceEstado;
+begin
+  lServiceEstado := TServiceEstado.Create;
+  try
+    try
+      lServiceEstado.Delete(Req, Res);
+    except
+      on E: Exception do
+      begin
+        Res.Send(E.Message).Status(THTTPStatus.InternalServerError);
+      end;
+    end;
+  finally
+    lServiceEstado.Free;
+  end;
+end;
 procedure Registry;
 begin
-  THorse.Use(Jhonson);
   THorse.Get('estados', Get);
-  THorse.Get('estados\:id', Find);
+  THorse.Get('estados/:id', Find);
   THorse.Post('estados', Post);
+  THorse.Put('estados/:id', Put);
+  THorse.Delete('estados/:id', Delete)
 end;
+
 end.

@@ -111,7 +111,6 @@ end;
 
 procedure Registry;
 begin
-  THorse.Use(Jhonson);
   THorse.Get('pais',Get);
   THorse.Get('pais/:id',Find);
   THorse.Post('pais/:id', Post);

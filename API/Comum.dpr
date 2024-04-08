@@ -21,7 +21,7 @@ uses
 
 begin
   ReportMemoryLeaksOnShutdown := True;
-
+  THorse.Use(Jhonson);
   UControler.Ping.Registry;
   UControler.Pais.Registry;
   UController.Estado.Registry;
