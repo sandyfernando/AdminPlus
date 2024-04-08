@@ -188,6 +188,9 @@
         <DCCReference Include="src\DAO\UDAO.pas"/>
         <DCCReference Include="src\Service\UService.pas"/>
         <DCCReference Include="src\Service\UService.Pais.pas"/>
+        <DCCReference Include="src\Model\UModel.estado.pas"/>
+        <DCCReference Include="src\Controller\UController.Estado.pas"/>
+        <DCCReference Include="src\Service\UService.Estado.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -14,12 +14,17 @@ uses
   UModel in 'src\Model\UModel.pas',
   UDAO in 'src\DAO\UDAO.pas',
   UService in 'src\Service\UService.pas',
-  UService.Pais in 'src\Service\UService.Pais.pas';
+  UService.Pais in 'src\Service\UService.Pais.pas',
+  UModel.estado in 'src\Model\UModel.estado.pas',
+  UController.Estado in 'src\Controller\UController.Estado.pas',
+  UService.Estado in 'src\Service\UService.Estado.pas';
 
 begin
   ReportMemoryLeaksOnShutdown := True;
-  UControler.Pais.Registry;
+
   UControler.Ping.Registry;
+  UControler.Pais.Registry;
+  UController.Estado.Registry;
 
 //{$IFDEF MSWINDOWS}
 //  if DebugHook = 1 then // verifica se esta sendo feito a execução em modo Debug

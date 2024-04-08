@@ -1,8 +1,8 @@
-unit UModel.Pais;
+unit UModel.pais;
 
 interface
+
 uses
- UModel,
  dbcbr.mapping.attributes,
  dbcbr.types.mapping,
  dbcbr.mapping.register,
@@ -10,56 +10,34 @@ uses
  ormbr.types.blob,
  Data.DB,
  System.Classes;
-
 type
   [Entity]
-  [Table('pais','')]
-  [PrimaryKey('id', 'Chave primária')]
-  [Sequence('pais_id_seq')]
-  [OrderBy('id Desc')]
-  TPaisModel = class
+  [Table('pais', '')]
+  [PrimaryKey('id', NotInc, NoSort, False, 'Chave primária')]
+  Tpais = class
   private
-    FDescricao: String;
-    FId: Integer;
-    FSigla: String;
-
-    procedure SetDescricao(const Value: String);
-    procedure SetId(const Value: Integer);
-    procedure SetSigla(const Value: String);
-
-  public
-    [Restrictions([TRestriction.NoUpdate, TRestriction.NoInsert , TRestriction.NotNull])]
+    { Private declarations } 
+    Fid: Nullable<Integer>;
+    Fsigla: Nullable<String>;
+    Fdescricao: Nullable<String>;
+  public 
+    { Public declarations } 
     [Column('id', ftInteger)]
-    [Dictionary('client_id','Mensagem de validação','','','',taCenter)]
-    property Id: Integer read FId write SetId;
+    [Dictionary('id', 'Mensagem de validação', '', '', '', taCenter)]
+    property id: Nullable<Integer> read Fid write Fid;
 
     [Column('sigla', ftString, 3)]
-    [Dictionary('sigla','Valor passado para sigla é invalido','','','',taLeftJustify)]
-    property Sigla: String read FSigla write SetSigla;
+    [Dictionary('sigla', 'Mensagem de validação', '', '', '', taLeftJustify)]
+    property sigla: Nullable<String> read Fsigla write Fsigla;
 
     [Column('descricao', ftString, 250)]
-    [Dictionary('descricao','Valor informado para descriação é invalido','','','',taLeftJustify)]
-    property Descricao: String read FDescricao write SetDescricao;
+    [Dictionary('descricao', 'Mensagem de validação', '', '', '', taLeftJustify)]
+    property descricao: Nullable<String> read Fdescricao write Fdescricao;
   end;
 
 implementation
 
-{ TPais }
-
-procedure TPaisModel.SetDescricao(const Value: String);
-begin
-  FDescricao := Value;
-end;
-
-procedure TPaisModel.SetId(const Value: Integer);
-begin
-  FId := Value;
-end;
-
-procedure TPaisModel.SetSigla(const Value: String);
-begin
-  FSigla := Value;
-end;
 initialization
-  TRegisterClass.RegisterEntity(TPaisModel);
+  TRegisterClass.RegisterEntity(Tpais)
+
 end.
