@@ -2,32 +2,42 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2024/02/16 10:44:00.000.962,=C:\Users\trabalho\Documents\Embarcadero\Studio\Projects\Unit10.pas</Transaction>
-    <Transaction>2024/03/23 13:24:26.000.200,C:\Users\trabalho\Documents\Embarcadero\Studio\Projects\Project7.dproj=F:\Projeto\AdmimPlus\API\Comum.dproj</Transaction>
+    <Transaction>2024/03/23 13:24:26.000.200,F:\Projeto\AdmimPlus\API\Comum.dproj=C:\Users\trabalho\Documents\Embarcadero\Studio\Projects\Project7.dproj</Transaction>
     <Transaction>2024/03/23 17:10:58.000.385,=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
-    <Transaction>2024/03/23 17:16:35.000.172,F:\Projeto\AdminPlus\API\Unit1.pas=F:\Projeto\AdminPlus\API\src\Model\UModel.Pais.pas</Transaction>
+    <Transaction>2024/03/23 17:16:35.000.172,F:\Projeto\AdminPlus\API\src\Model\UModel.Pais.pas=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
     <Transaction>2024/03/23 17:16:55.000.575,=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
-    <Transaction>2024/03/23 17:22:42.000.615,F:\Projeto\AdminPlus\API\Unit1.pas=F:\Projeto\AdminPlus\API\src\Controller\UControler.Pais.pas</Transaction>
+    <Transaction>2024/03/23 17:22:42.000.615,F:\Projeto\AdminPlus\API\src\Controller\UControler.Pais.pas=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
     <Transaction>2024/03/23 17:26:35.000.089,=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
-    <Transaction>2024/03/23 17:29:22.000.932,F:\Projeto\AdminPlus\API\Unit1.pas=F:\Projeto\AdminPlus\API\src\Controller\UControler.Ping.pas</Transaction>
+    <Transaction>2024/03/23 17:29:22.000.932,F:\Projeto\AdminPlus\API\src\Controller\UControler.Ping.pas=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
     <Transaction>2024/03/23 19:45:47.000.482,=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
-    <Transaction>2024/03/23 19:46:53.000.465,F:\Projeto\AdminPlus\API\Unit1.pas=F:\Projeto\AdminPlus\API\src\DAO\UDAO.Pais.pas</Transaction>
+    <Transaction>2024/03/23 19:46:53.000.465,F:\Projeto\AdminPlus\API\src\DAO\UDAO.Pais.pas=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
     <Transaction>2024/03/23 19:51:53.000.153,=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
-    <Transaction>2024/03/23 19:53:28.000.394,F:\Projeto\AdminPlus\API\Unit1.pas=F:\Projeto\AdminPlus\API\src\DAO\UDAO.Conexao.pas</Transaction>
+    <Transaction>2024/03/23 19:53:28.000.394,F:\Projeto\AdminPlus\API\src\DAO\UDAO.Conexao.pas=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
     <Transaction>2024/03/25 21:46:28.000.555,=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
-    <Transaction>2024/03/25 21:48:24.000.247,F:\Projeto\AdminPlus\API\src\Model\Model.pas=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
-    <Transaction>2024/03/25 21:49:16.000.597,F:\Projeto\AdminPlus\API\src\Model\UModel.pas=F:\Projeto\AdminPlus\API\src\Model\Model.pas</Transaction>
+    <Transaction>2024/03/25 21:48:24.000.247,F:\Projeto\AdminPlus\API\Unit1.pas=F:\Projeto\AdminPlus\API\src\Model\Model.pas</Transaction>
+    <Transaction>2024/03/25 21:49:16.000.597,F:\Projeto\AdminPlus\API\src\Model\Model.pas=F:\Projeto\AdminPlus\API\src\Model\UModel.pas</Transaction>
     <Transaction>2024/03/25 21:49:29.000.817,=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
-    <Transaction>2024/03/25 21:50:37.000.526,F:\Projeto\AdminPlus\API\src\DAO\UDAO.pas=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
+    <Transaction>2024/03/25 21:50:37.000.526,F:\Projeto\AdminPlus\API\Unit1.pas=F:\Projeto\AdminPlus\API\src\DAO\UDAO.pas</Transaction>
     <Transaction>2024/03/25 22:00:07.000.061,=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
-    <Transaction>2024/03/25 22:01:55.000.353,F:\Projeto\AdminPlus\API\src\Service\UService.pas=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
+    <Transaction>2024/03/25 22:01:55.000.353,F:\Projeto\AdminPlus\API\Unit1.pas=F:\Projeto\AdminPlus\API\src\Service\UService.pas</Transaction>
     <Transaction>2024/03/25 22:02:07.000.482,=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
-    <Transaction>2024/03/25 22:03:51.000.913,F:\Projeto\AdminPlus\API\src\Service\UService.Pais.pas=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
+    <Transaction>2024/03/25 22:03:51.000.913,F:\Projeto\AdminPlus\API\Unit1.pas=F:\Projeto\AdminPlus\API\src\Service\UService.Pais.pas</Transaction>
     <Transaction>2024/03/27 18:12:03.000.506,F:\Projeto\AdminPlus\API\src\DAO\UDAO.Pais.pas=</Transaction>
     <Transaction>2024/04/07 20:50:58.000.271,=F:\Projeto\AdminPlus\API\src\Model\UModel.estado.pas</Transaction>
     <Transaction>2024/04/07 21:34:38.000.594,=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
-    <Transaction>2024/04/07 21:38:54.000.778,F:\Projeto\AdminPlus\API\Unit1.pas=F:\Projeto\AdminPlus\API\src\Controller\UController.Estado.pas</Transaction>
+    <Transaction>2024/04/07 21:38:54.000.778,F:\Projeto\AdminPlus\API\src\Controller\UController.Estado.pas=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
     <Transaction>2024/04/07 22:01:24.000.813,=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
-    <Transaction>2024/04/07 22:02:20.000.967,F:\Projeto\AdminPlus\API\Unit1.pas=F:\Projeto\AdminPlus\API\src\Service\UService.Estado.pas</Transaction>
+    <Transaction>2024/04/07 22:02:20.000.967,F:\Projeto\AdminPlus\API\src\Service\UService.Estado.pas=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
+    <Transaction>2024/04/08 20:37:36.000.447,=F:\Projeto\AdminPlus\API\src\Model\UModel.cidade.pas</Transaction>
+    <Transaction>2024/04/08 20:40:34.000.859,=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
+    <Transaction>2024/04/08 20:47:47.000.093,F:\Projeto\AdminPlus\API\Unit1.pas=F:\Projeto\AdminPlus\API\src\Utils\UUtils.Ini.pas</Transaction>
+    <Transaction>2024/04/08 20:51:17.000.055,=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
+    <Transaction>2024/04/08 20:55:18.000.777,F:\Projeto\AdminPlus\API\Unit1.pas=F:\Projeto\AdminPlus\API\src\Model\UModel.Confg.pas</Transaction>
+    <Transaction>2024/04/09 18:37:52.642,=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
+    <Transaction>2024/04/09 18:38:56.788,F:\Projeto\AdminPlus\API\src\Controller\UController.Cidade.pas=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
+    <Transaction>2024/04/09 18:47:20.190,=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
+    <Transaction>2024/04/09 18:48:27.443,F:\Projeto\AdminPlus\API\src\Service\UService.Cidade.pas=F:\Projeto\AdminPlus\API\Unit1.pas</Transaction>
+    <Transaction>2024/04/09 19:46:27.452,=F:\Projeto\AdminPlus\API\src\Model\UModel.endereco.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="src"/>
@@ -35,6 +45,7 @@
     <File Path="src\Controller\UControler.Pais.pas"/>
     <File Path="src\Controller\UControler.Ping.pas"/>
     <File Path="src\Controller\UController.Estado.pas"/>
+    <File Path="src\Controller\UController.Cidade.pas"/>
     <File Path="src\DAO"/>
     <File Path="src\DAO\UDAO.Conexao.pas"/>
     <File Path="src\DAO\UDAO.pas"/>
@@ -42,9 +53,15 @@
     <File Path="src\Model\UModel.Pais.pas"/>
     <File Path="src\Model\UModel.pas"/>
     <File Path="src\Model\UModel.estado.pas"/>
+    <File Path="src\Model\UModel.cidade.pas"/>
+    <File Path="src\Model\UModel.Confg.pas"/>
+    <File Path="src\Model\UModel.endereco.pas"/>
     <File Path="src\Service"/>
     <File Path="src\Service\UService.pas"/>
     <File Path="src\Service\UService.Pais.pas"/>
     <File Path="src\Service\UService.Estado.pas"/>
+    <File Path="src\Service\UService.Cidade.pas"/>
+    <File Path="src\Utils"/>
+    <File Path="src\Utils\UUtils.Ini.pas"/>
   </ProjectSortOrder>
 </BorlandProject>

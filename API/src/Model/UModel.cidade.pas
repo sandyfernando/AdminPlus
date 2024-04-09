@@ -12,17 +12,17 @@ uses
   UModel.estado,
   ormbr.types.blob, 
   ormbr.types.lazy, 
-  ormbr.types.mapping, 
+  dbcbr.types.mapping,
   ormbr.types.nullable, 
-  ormbr.mapping.classes, 
-  ormbr.mapping.register, 
-  ormbr.mapping.attributes; 
+  dbcbr.mapping.classes,
+  dbcbr.mapping.register,
+  dbcbr.mapping.attributes;
 
 type
   [Entity]
   [Table('cidade', '')]
   [PrimaryKey('id', NotInc, NoSort, False, 'Chave primária')]
-  Tcidade = class
+  TCidade = class
   private
     { Private declarations } 
     Fid: Nullable<Integer>;

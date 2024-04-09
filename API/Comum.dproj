@@ -191,6 +191,12 @@
         <DCCReference Include="src\Model\UModel.estado.pas"/>
         <DCCReference Include="src\Controller\UController.Estado.pas"/>
         <DCCReference Include="src\Service\UService.Estado.pas"/>
+        <DCCReference Include="src\Model\UModel.cidade.pas"/>
+        <DCCReference Include="src\Utils\UUtils.Ini.pas"/>
+        <DCCReference Include="src\Model\UModel.Confg.pas"/>
+        <DCCReference Include="src\Controller\UController.Cidade.pas"/>
+        <DCCReference Include="src\Service\UService.Cidade.pas"/>
+        <DCCReference Include="src\Model\UModel.endereco.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
