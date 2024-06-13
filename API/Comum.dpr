@@ -23,7 +23,14 @@ uses
   UModel.Confg in 'src\Model\UModel.Confg.pas',
   UController.Cidade in 'src\Controller\UController.Cidade.pas',
   UService.Cidade in 'src\Service\UService.Cidade.pas',
-  UModel.endereco in 'src\Model\UModel.endereco.pas';
+  UModel.endereco in 'src\Model\UModel.endereco.pas',
+  UController.Endereco in 'src\Controller\UController.Endereco.pas',
+  UService.Endereco in 'src\Service\UService.Endereco.pas',
+  UModel.contato in 'src\Model\UModel.contato.pas',
+  UService.Contato in 'src\Service\UService.Contato.pas',
+  UController.Pessoa in 'src\Controller\UController.Pessoa.pas',
+  UModel.pessoa in 'src\Model\UModel.pessoa.pas',
+  UService.Pessoa in 'src\Service\UService.Pessoa.pas';
 
 begin
   ReportMemoryLeaksOnShutdown := True;
@@ -32,6 +39,8 @@ begin
   UControler.Pais.Registry;
   UController.Estado.Registry;
   UController.Cidade.Registry;
+  UController.Endereco.Registry;
+  UController.Pessoa.Registry;
 
 //{$IFDEF MSWINDOWS}
 //  if DebugHook = 1 then // verifica se esta sendo feito a execução em modo Debug

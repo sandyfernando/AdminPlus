@@ -1,121 +1,124 @@
-unit UControler.Pais;
+unit UController.Endereco;
 
 interface
-
 uses
-  Horse,
-  Horse.Jhonson,
-  System.JSON,
-  System.SysUtils,
-  UService.Pais,
-  Horse.Commons;
+  Horse;
   procedure Registry;
 
 implementation
+
+uses
+  System.SysUtils,
+  Uservice.Endereco,
+  Horse.Commons;
+
 procedure Get(Req: THorseRequest; Res: THorseResponse; NEXT: TProc);
 var
-  lPaisService: TServicePais;
+  lServiceEndereco: TServiceEndereco;
 begin
+  lServiceEndereco := TServiceEndereco.Create;
   try
     try
-      lPaisService := TServicePais.Create;
-      lPaisService.Load(Req, Res);
+      lServiceEndereco.Load(Req, Res);
     except
       on E: Exception do
       begin
         Res.Send(e.Message).Status(THTTPStatus.InternalServerError)
       end;
     end;
+
   finally
-    if Assigned(lPaisService) then
-      FreeAndNil(lPaisService);
+    FreeAndNil(lServiceEndereco);
   end;
 end;
+
 procedure Find(Req: THorseRequest; Res: THorseResponse; NEXT: TProc);
 var
-  lPaisService: TServicePais;
+  lServiceEndereco: TServiceEndereco;
 begin
+  lServiceEndereco := TServiceEndereco.Create;
   try
     try
-      lPaisService := TServicePais.Create;
-      lPaisService.Find(Req, Res, NEXT);
+      lServiceEndereco.Find(Req, Res);
     except
       on E: Exception do
       begin
         Res.Send(e.Message).Status(THTTPStatus.InternalServerError)
       end;
     end;
+
   finally
-    if Assigned(lPaisService) then
-      FreeAndNil(lPaisService);
+    FreeAndNil(lServiceEndereco);
   end;
 end;
 
 procedure Post(Req: THorseRequest; Res: THorseResponse; NEXT: TProc);
 var
-  lPaisService: TServicePais;
+  lServiceEndereco: TServiceEndereco;
 begin
+  lServiceEndereco := TServiceEndereco.Create;
   try
     try
-      lPaisService := TServicePais.Create;
-      lPaisService.Insert(Req, Res);
+      lServiceEndereco.Insert(Req, Res);
     except
       on E: Exception do
       begin
         Res.Send(e.Message).Status(THTTPStatus.InternalServerError)
       end;
     end;
+
   finally
-    if Assigned(lPaisService) then
-      FreeAndNil(lPaisService);
+    FreeAndNil(lServiceEndereco);
   end;
 end;
 
 procedure Put(Req: THorseRequest; Res: THorseResponse; NEXT: TProc);
 var
-  lServicesPais: TServicePais;
+  lServiceEndereco: TServiceEndereco;
 begin
-  lServicesPais := TServicePais.Create;
+  lServiceEndereco := TServiceEndereco.Create;
   try
     try
-      lServicesPais.Update(Req, Res, NEXT);
+      lServiceEndereco.Update(Req, Res);
     except
       on E: Exception do
       begin
         Res.Send(e.Message).Status(THTTPStatus.InternalServerError)
       end;
     end;
+
   finally
-    lServicesPais.Free;
+    FreeAndNil(lServiceEndereco);
   end;
 end;
 
 procedure Delete(Req: THorseRequest; Res: THorseResponse; NEXT: TProc);
 var
-  lServicePais: TServicePais;
+  lServiceEndereco: TServiceEndereco;
 begin
-  lServicePais := TServicePais.Create;
+  lServiceEndereco := TServiceEndereco.Create;
   try
     try
-      lServicePais.Delete(Req, Res, NEXT);
+      lServiceEndereco.Delete(Req, Res);
     except
       on E: Exception do
       begin
         Res.Send(e.Message).Status(THTTPStatus.InternalServerError)
       end;
     end;
+
   finally
-    lServicePais.Free;
+    FreeAndNil(lServiceEndereco);
   end;
 end;
 
 procedure Registry;
 begin
-  THorse.Get('pais',Get);
-  THorse.Get('pais/:id',Find);
-  THorse.Post('pais', Post);
-  THorse.Put('pais/:id', Put);
-  THorse.Delete('pais/:id', Delete);
-
+  THorse.Get('enderecos', Get);
+  THorse.Get('enderecos/:id', Find);
+  THorse.Post('enderecos', Post);
+  THorse.Put('enderecos/:id', Put);
+  THorse.Delete('enderecos/:id', Delete);
 end;
+
 end.

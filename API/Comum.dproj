@@ -197,6 +197,13 @@
         <DCCReference Include="src\Controller\UController.Cidade.pas"/>
         <DCCReference Include="src\Service\UService.Cidade.pas"/>
         <DCCReference Include="src\Model\UModel.endereco.pas"/>
+        <DCCReference Include="src\Controller\UController.Endereco.pas"/>
+        <DCCReference Include="src\Service\UService.Endereco.pas"/>
+        <DCCReference Include="src\Model\UModel.contato.pas"/>
+        <DCCReference Include="src\Service\UService.Contato.pas"/>
+        <DCCReference Include="src\Controller\UController.Pessoa.pas"/>
+        <DCCReference Include="src\Model\UModel.pessoa.pas"/>
+        <DCCReference Include="src\Service\UService.Pessoa.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

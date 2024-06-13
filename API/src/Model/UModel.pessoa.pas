@@ -6,18 +6,21 @@ uses
   DB, 
   Classes, 
   SysUtils, 
-  Generics.Collections, 
+  Generics.Collections,
+  UModel.Contato,
+  UModel.Endereco,
+
 
   /// orm 
-  UModel.contato,
-  UModel.endereco,
-  ormbr.types.blob, 
-  ormbr.types.lazy, 
-  ormbr.types.mapping, 
-  ormbr.types.nullable, 
-  ormbr.mapping.classes, 
-  ormbr.mapping.register, 
-  ormbr.mapping.attributes; 
+  /// orm
+  UModel.cidade,
+  ormbr.types.blob,
+  ormbr.types.lazy,
+  dbcbr.types.mapping,
+  ormbr.types.nullable,
+  dbcbr.mapping.classes,
+  dbcbr.mapping.register,
+  dbcbr.mapping.attributes;
 
 type
   [Entity]
@@ -39,12 +42,12 @@ type
     Finsc_estadual: Nullable<String>;
     Finsc_municipal: Nullable<String>;
 
-    Fcontato_0:  Tcontato  ;
-    Fendereco_1:  Tendereco  ;
-    Fendereco_2:  Tendereco  ;
-    Fendereco_3:  Tendereco  ;
-  public 
-    { Public declarations } 
+    Fcontato:  TContato  ;
+    FEnderecoCobranca:  TEndereco  ;
+    FEnderecoEntrega:  TEndereco  ;
+    FEnderecoPrincipal:  TEndereco  ;
+  public
+    { Public declarations }
     constructor Create;
     destructor Destroy; override;
     [Column('id', ftInteger)]
@@ -100,16 +103,16 @@ type
     property insc_municipal: Nullable<String> read Finsc_municipal write Finsc_municipal;
 
     [Association(OneToOne,'id_contato','contato','id')]
-    property contato: Tcontato read Fcontato_0 write Fcontato_0;
+    property contato: Tcontato read Fcontato write Fcontato;
 
     [Association(OneToOne,'id_endereco_cobranca','endereco','id')]
-    property endereco: Tendereco read Fendereco_1 write Fendereco_1;
+    property EnderecoCobranca: Tendereco read FEnderecoCobranca write FEnderecoCobranca;
 
     [Association(OneToOne,'id_endereco_entrega','endereco','id')]
-    property endereco: Tendereco read Fendereco_2 write Fendereco_2;
+    property EnderecoEntrega: Tendereco read FEnderecoEntrega write FEnderecoEntrega;
 
     [Association(OneToOne,'id_endereco_principal','endereco','id')]
-    property endereco: Tendereco read Fendereco_3 write Fendereco_3;
+    property EnderecoPrincipal: Tendereco read FEnderecoPrincipal write FEnderecoPrincipal;
 
   end;
 
@@ -117,25 +120,25 @@ implementation
 
 constructor Tpessoa.Create;
 begin
-  Fcontato_0 := Tcontato.Create;
-  Fendereco_1 := Tendereco.Create;
-  Fendereco_2 := Tendereco.Create;
-  Fendereco_3 := Tendereco.Create;
+  Fcontato := Tcontato.Create;
+  FEnderecoCobranca := Tendereco.Create;
+  FEnderecoEntrega := Tendereco.Create;
+  FEnderecoPrincipal := Tendereco.Create;
 end;
 
 destructor Tpessoa.Destroy;
 begin
-  if Assigned(Fcontato_0) then
-    Fcontato_0.Free;
+  if Assigned(Fcontato) then
+    Fcontato.Free;
 
-  if Assigned(Fendereco_1) then
-    Fendereco_1.Free;
+  if Assigned(FEnderecoCobranca) then
+    FEnderecoCobranca.Free;
 
-  if Assigned(Fendereco_2) then
-    Fendereco_2.Free;
+  if Assigned(FEnderecoEntrega) then
+    FEnderecoEntrega.Free;
 
-  if Assigned(Fendereco_3) then
-    Fendereco_3.Free;
+  if Assigned(FEnderecoPrincipal) then
+    FEnderecoPrincipal.Free;
 
   inherited;
 end;
